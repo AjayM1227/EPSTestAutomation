@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <!--This is already created users present on the UI to execute the scenarios. This would be change as per data on the UI deleted or refreshed.-->
+  <ArrayOfUser>
+    <!--Hard coded Users data for EPS.-->
+	  <!--Users data for EPS login as admin.-->
+    <User>
+      <Name>epsadmin@gmail.com</Name>
+      <Password>eps12345</Password>		
+		<Email>epsadmin@gmail.com</Email>
+		<MobileNo>12345678</MobileNo>
+		<Designation>test01</Designation>
+		<Group>ops</Group>
+		<Role>eps12345</Role>
+      <UserType>EPSAdminUser01</UserType>
+      <IsCreated>true</IsCreated>
+    </User>
+	  <!--Users data for EPS user creation.-->
+    <User>
+		<Name>test0123@gmail.com</Name>
+		<Password>eps12345</Password>
+		<Email>test0123@gmail.com</Email>
+		<MobileNo>12345678</MobileNo>
+		<Designation>eps12345</Designation>
+		<Group>eps12345</Group>
+		<Role>eps12345</Role>
+		<UserType>NewEPSUser01</UserType>
+      <IsCreated>true</IsCreated>
+    </User>
+	  <!--Users data for EPS login as super admin.-->
+	  <User>
+		  <Name>epssuperadmin@gmail.com</Name>
+		  <Password>Eps12345678@</Password>
+		  <Email>epssuperadmin@gmail.com</Email>
+		  <MobileNo>eps12345</MobileNo>
+		  <Designation>eps12345</Designation>
+		  <Group>eps12345</Group>
+		  <Role>eps12345</Role>
+		  <UserType>EPSSuperAdminUser01</UserType>
+		  <IsCreated>true</IsCreated>
+	  </User>
+  </ArrayOfUser>
+</Data>
