@@ -159,11 +159,20 @@
   <data name="OptionInUserProfile_UserProfile_Xpath" xml:space="preserve">
     <value>//div[@id='b1-b7-Content']</value>
   </data>
-  <data name="UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath" xml:space="preserve">
+  <data name="UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath" xml:space="preserve">
     <value>//button[.='APPROVE']</value>
   </data>
-  <data name="UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath" xml:space="preserve">
+  <data name="UserPage_ApproveOrRejectTheNewlyCreatedUser_LTA_Remarks_Xpath" xml:space="preserve">
+    <value>//div[@id='b4-b17-InputContainer']//textarea</value>
+  </data>
+  <data name="UserPage_ApproveOrRejectTheNewlyCreatedUser_Reference_Number_Xpath" xml:space="preserve">
     <value>//table[@id="b22-TeamTaskTable"]/tbody/tr/td[2]</value>
+  </data>
+  <data name="UserPage_ApproveOrRejectTheNewlyCreatedUser_REJECT_Button_Xpath" xml:space="preserve">
+    <value>//button[.='REJECT']</value>
+  </data>
+  <data name="UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath" xml:space="preserve">
+    <value>//div[@id="b4-b21-b1-UploadContainer"]//div/label/span</value>
   </data>
   <data name="UserPage_clickOnButtonInUserAccessManagement_AddUser_Xpath" xml:space="preserve">
     <value>//div[@class='margin-y-m']//button[.='ADD USER']</value>

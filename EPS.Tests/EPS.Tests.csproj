@@ -140,6 +140,9 @@
     <Content Include="extent-config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\Files\Approve.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestData\XML\TestDataDEV.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

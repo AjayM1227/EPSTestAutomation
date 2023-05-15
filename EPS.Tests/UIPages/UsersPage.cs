@@ -4,6 +4,7 @@ using EPS.Automation.Exceptions;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -90,7 +91,7 @@ namespace EPS.Tests.UIPages
                 String date = DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss");
 
                 // Generate Customized GUID for text fill
-                fullName = "AutoUser" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + Guid.NewGuid().ToString().Substring(0, 4);            
+                fullName = "AutoUser" + Guid.NewGuid().ToString().Substring(0, 4);            
                 emailAddress = string.Format(fullName + "@gmail.com");
                 designation = "Test01";
 
@@ -271,25 +272,59 @@ namespace EPS.Tests.UIPages
         /// This method is used to approve the newly created user.
         /// </summary>
         /// <param name="userType">This is user Type present in enum.</param>
-        public void ApproveTheNewlyCreatedUser(User.UserTypeEnum userType)
+        /// <param name="actionType">This is action Type .</param>
+        public void ApproveOrRejectTheNewlyCreatedUser(string actionType, User.UserTypeEnum userType)
         {
+            
             try
             {
                 User user = User.Get(userType);
+                bool status = false;
                 string expectedreferenceNumber = user.ReferenceNumber.ToString();
-                WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath));
-                IList<IWebElement> ActualReferenceNumber = GetWebElementsProperties(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath));
+                WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Reference_Number_Xpath));
+                IList<IWebElement> ActualReferenceNumber = GetWebElementsProperties(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Reference_Number_Xpath));
                 for (int i = 0; i < ActualReferenceNumber.Count; i++)
                 {
                     if(expectedreferenceNumber == ActualReferenceNumber[i].Text)
                     {
                         ActualReferenceNumber[i].Click();
+                        status = true;
                         break;
                     }
                 }
                 Thread.Sleep(3000);
-                WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath));
-                ClickButtonByXPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath);
+                if(status)
+                {
+                    switch (actionType)
+                    {
+                        case "APPROVE":
+                            WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath));
+
+                            // Get the current directory path
+                            string currentDirectory = Directory.GetCurrentDirectory();
+
+                            // Get the project directory path by traversing up two levels
+                            string projectDirectory = Directory.GetParent(currentDirectory).Parent.FullName;
+                            // Concatenate the project directory path with the file name or relative file path
+                            string filePath = Path.Combine(projectDirectory, "TestData\\Files\\Approve.png");
+                            Thread.Sleep(3000);
+                           //   UploadFile(filePath, By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath));                  
+                            Thread.Sleep(20000);
+                            
+                            WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath));
+                            ClickButtonByXPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath);
+                            break;
+                        case "REJECT":
+                            WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_LTA_Remarks_Xpath));
+                            FillTextBoxByXPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_LTA_Remarks_Xpath, "Rejected");
+                            WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_REJECT_Button_Xpath));
+                            ClickButtonByXPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_REJECT_Button_Xpath);
+                            break;
+                    }
+                }
+               
+
+               
             }
             catch (Exception e)
             {

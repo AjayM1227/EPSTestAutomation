@@ -189,18 +189,45 @@ namespace EPS.Tests.UIPages {
         /// <summary>
         ///   Looks up a localized string similar to //button[.=&apos;APPROVE&apos;].
         /// </summary>
-        internal static string UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath {
+        internal static string UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath {
             get {
-                return ResourceManager.GetString("UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath", resourceCulture);
+                return ResourceManager.GetString("UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //div[@id=&apos;b4-b17-InputContainer&apos;]//textarea.
+        /// </summary>
+        internal static string UserPage_ApproveOrRejectTheNewlyCreatedUser_LTA_Remarks_Xpath {
+            get {
+                return ResourceManager.GetString("UserPage_ApproveOrRejectTheNewlyCreatedUser_LTA_Remarks_Xpath", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to //table[@id=&quot;b22-TeamTaskTable&quot;]/tbody/tr/td[2].
         /// </summary>
-        internal static string UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath {
+        internal static string UserPage_ApproveOrRejectTheNewlyCreatedUser_Reference_Number_Xpath {
             get {
-                return ResourceManager.GetString("UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath", resourceCulture);
+                return ResourceManager.GetString("UserPage_ApproveOrRejectTheNewlyCreatedUser_Reference_Number_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //button[.=&apos;REJECT&apos;].
+        /// </summary>
+        internal static string UserPage_ApproveOrRejectTheNewlyCreatedUser_REJECT_Button_Xpath {
+            get {
+                return ResourceManager.GetString("UserPage_ApproveOrRejectTheNewlyCreatedUser_REJECT_Button_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //div[@id=&quot;b4-b21-b1-UploadContainer&quot;]//div/label/span.
+        /// </summary>
+        internal static string UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath {
+            get {
+                return ResourceManager.GetString("UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath", resourceCulture);
             }
         }
         

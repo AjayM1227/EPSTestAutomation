@@ -63,11 +63,13 @@ namespace EPS.Tests.Tests.TestDefinitions
         /// This method is used to approve the newly created user.
         /// </summary>
         /// <param name="userType">This is user Type present in enum.</param>
-        [Then(@"I Approve the newly created ""(.*)""")]
-        public void ApproveTheNewlyCreated(User.UserTypeEnum userType)
+        /// <param name="actionType">This is action Type .</param>
+
+        [Then(@"I ""(.*)"" the newly created ""(.*)""")]
+        public void ApproveOrRejectNewlyCreatedUser(string actionType, User.UserTypeEnum userType)
         {
             Logger.LogMethodEntry(IsTakeScreenShotDuringEntryExit);
-            new UsersPage().ApproveTheNewlyCreatedUser(userType);
+            new UsersPage().ApproveOrRejectTheNewlyCreatedUser(actionType,userType);
             Logger.LogMethodExit(IsTakeScreenShotDuringEntryExit);
         }
 
