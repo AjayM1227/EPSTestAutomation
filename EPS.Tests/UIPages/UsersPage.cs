@@ -298,18 +298,7 @@ namespace EPS.Tests.UIPages
                     switch (actionType)
                     {
                         case "APPROVE":
-                            WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath));
-
-                            // Get the current directory path
-                            string currentDirectory = Directory.GetCurrentDirectory();
-
-                            // Get the project directory path by traversing up two levels
-                            string projectDirectory = Directory.GetParent(currentDirectory).Parent.FullName;
-                            // Concatenate the project directory path with the file name or relative file path
-                            string filePath = Path.Combine(projectDirectory, "TestData\\Files\\Approve.png");
-                            Thread.Sleep(3000);
-                           //   UploadFile(filePath, By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_UploadFile_Xpath));                  
-                            Thread.Sleep(20000);
+                        
                             
                             WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath));
                             ClickButtonByXPath(UsersPageResource.UserPage_ApproveOrRejectTheNewlyCreatedUser_Approve_Button_Xpath);
