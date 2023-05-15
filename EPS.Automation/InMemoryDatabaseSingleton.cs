@@ -156,32 +156,35 @@ namespace EPS.Automation
             foreach (XmlNode eletment in elements)
             {
                 // Update the data only of the user type matches
-                if (eletment.ChildNodes[7].InnerText == user.UserType.ToString())
+                if (eletment.ChildNodes[0].InnerText == user.UserType.ToString())
                 {
                     // Update the user data based on the entity
                     switch (entityType)
                     {
                         case "Name":
-                            eletment.ChildNodes[0].InnerText = entityValue;
+                            eletment.ChildNodes[1].InnerText = entityValue;
                             break;
 
                         case "Password":
-                            eletment.ChildNodes[1].InnerText = entityValue;
-                            break;
-                        case "Email":
                             eletment.ChildNodes[2].InnerText = entityValue;
                             break;
-                        case "MobileNo":
+                        case "Email":
                             eletment.ChildNodes[3].InnerText = entityValue;
                             break;
-                        case "Designation":
+                        case "MobileNo":
                             eletment.ChildNodes[4].InnerText = entityValue;
                             break;
-                        case "Group":
+                        case "Designation":
                             eletment.ChildNodes[5].InnerText = entityValue;
                             break;
-                        case "Role":
+                        case "Group":
                             eletment.ChildNodes[6].InnerText = entityValue;
+                            break;
+                        case "Role":
+                            eletment.ChildNodes[7].InnerText = entityValue;
+                            break;
+                        case "ReferenceNumber":
+                            eletment.ChildNodes[8].InnerText = entityValue;
                             break;
                     }
                     break;

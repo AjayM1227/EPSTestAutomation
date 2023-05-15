@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ClickOnTab_Archive_Xpath" xml:space="preserve">
+    <value>//div[@class="tabs-header"]//div[normalize-space(text())='Archive']</value>
+  </data>
+  <data name="ClickOptionsInLSB_Home_Xpath" xml:space="preserve">
+    <value>//nav[@role='navigation']//div//a[.='Home']</value>
+  </data>
+  <data name="FillUserDetails_calander_icon_Xpath" xml:space="preserve">
+    <value>//div[@id="ArchiveTasksList"]//div[@class="input-with-icon-content-icon center ph"]</value>
+  </data>
   <data name="FillUserDetails_CreateUser_PopUp_Designation_Xpath" xml:space="preserve">
     <value>//label[.='Designation']/../../following-sibling::div/div/span/input</value>
   </data>
@@ -138,11 +147,23 @@
   <data name="FillUserDetails_CreateUser_PopUp_submitbutton_Xpath" xml:space="preserve">
     <value>//div/button[.='SUBMIT']</value>
   </data>
+  <data name="FillUserDetails_First_Reference_Number_Xpath" xml:space="preserve">
+    <value>(//table[@id="b24-ArchiveTaskTable"]/tbody/tr/td[2])[1]</value>
+  </data>
+  <data name="FillUserDetails_Todays_Date_Xpath" xml:space="preserve">
+    <value>//td[@class="is-today is-selected"]</value>
+  </data>
   <data name="OptionInUserProfile_UserProfile_Logout_Xpath" xml:space="preserve">
     <value>//div[@class='popover-bottom ']//div[.='Log Out']</value>
   </data>
   <data name="OptionInUserProfile_UserProfile_Xpath" xml:space="preserve">
     <value>//div[@id='b1-b7-Content']</value>
+  </data>
+  <data name="UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath" xml:space="preserve">
+    <value>//button[.='APPROVE']</value>
+  </data>
+  <data name="UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath" xml:space="preserve">
+    <value>//table[@id="b22-TeamTaskTable"]/tbody/tr/td[2]</value>
   </data>
   <data name="UserPage_clickOnButtonInUserAccessManagement_AddUser_Xpath" xml:space="preserve">
     <value>//div[@class='margin-y-m']//button[.='ADD USER']</value>

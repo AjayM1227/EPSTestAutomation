@@ -96,7 +96,7 @@ namespace EPS.Automation
         {
             try
             {
-                if (_webDriver != null)
+                if (_webDriver != null) 
                     _webDriver.Quit();
                 _webDriver.Close();
                 Process[] processesToKill = BrowserProcessFactory.GetProcessInstance();

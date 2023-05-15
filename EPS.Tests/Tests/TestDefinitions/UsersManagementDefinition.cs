@@ -45,7 +45,7 @@ namespace EPS.Tests.Tests.TestDefinitions
 
 
         /// <summary>
-        /// This method is enter the user details.
+        /// This method is used to enter the user details.
         /// </summary>
         /// <param name="userType">This is user Type present in enum.</param>
         /// <param name="groupName">This is group name of the user.</param>
@@ -56,6 +56,18 @@ namespace EPS.Tests.Tests.TestDefinitions
         {
             Logger.LogMethodEntry(IsTakeScreenShotDuringEntryExit);          
             new UsersPage().FillUserDetails(userType, groupName, role);
+            Logger.LogMethodExit(IsTakeScreenShotDuringEntryExit);
+        }
+
+        /// <summary>
+        /// This method is used to approve the newly created user.
+        /// </summary>
+        /// <param name="userType">This is user Type present in enum.</param>
+        [Then(@"I Approve the newly created ""(.*)""")]
+        public void ApproveTheNewlyCreated(User.UserTypeEnum userType)
+        {
+            Logger.LogMethodEntry(IsTakeScreenShotDuringEntryExit);
+            new UsersPage().ApproveTheNewlyCreatedUser(userType);
             Logger.LogMethodExit(IsTakeScreenShotDuringEntryExit);
         }
 

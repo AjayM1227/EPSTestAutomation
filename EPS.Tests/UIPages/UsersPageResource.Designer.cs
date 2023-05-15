@@ -61,6 +61,33 @@ namespace EPS.Tests.UIPages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to //div[@class=&quot;tabs-header&quot;]//div[normalize-space(text())=&apos;Archive&apos;].
+        /// </summary>
+        internal static string ClickOnTab_Archive_Xpath {
+            get {
+                return ResourceManager.GetString("ClickOnTab_Archive_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //nav[@role=&apos;navigation&apos;]//div//a[.=&apos;Home&apos;].
+        /// </summary>
+        internal static string ClickOptionsInLSB_Home_Xpath {
+            get {
+                return ResourceManager.GetString("ClickOptionsInLSB_Home_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //div[@id=&quot;ArchiveTasksList&quot;]//div[@class=&quot;input-with-icon-content-icon center ph&quot;].
+        /// </summary>
+        internal static string FillUserDetails_calander_icon_Xpath {
+            get {
+                return ResourceManager.GetString("FillUserDetails_calander_icon_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to //label[.=&apos;Designation&apos;]/../../following-sibling::div/div/span/input.
         /// </summary>
         internal static string FillUserDetails_CreateUser_PopUp_Designation_Xpath {
@@ -124,6 +151,24 @@ namespace EPS.Tests.UIPages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (//table[@id=&quot;b24-ArchiveTaskTable&quot;]/tbody/tr/td[2])[1].
+        /// </summary>
+        internal static string FillUserDetails_First_Reference_Number_Xpath {
+            get {
+                return ResourceManager.GetString("FillUserDetails_First_Reference_Number_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //td[@class=&quot;is-today is-selected&quot;].
+        /// </summary>
+        internal static string FillUserDetails_Todays_Date_Xpath {
+            get {
+                return ResourceManager.GetString("FillUserDetails_Todays_Date_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to //div[@class=&apos;popover-bottom &apos;]//div[.=&apos;Log Out&apos;].
         /// </summary>
         internal static string OptionInUserProfile_UserProfile_Logout_Xpath {
@@ -138,6 +183,24 @@ namespace EPS.Tests.UIPages {
         internal static string OptionInUserProfile_UserProfile_Xpath {
             get {
                 return ResourceManager.GetString("OptionInUserProfile_UserProfile_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //button[.=&apos;APPROVE&apos;].
+        /// </summary>
+        internal static string UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath {
+            get {
+                return ResourceManager.GetString("UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to //table[@id=&quot;b22-TeamTaskTable&quot;]/tbody/tr/td[2].
+        /// </summary>
+        internal static string UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath {
+            get {
+                return ResourceManager.GetString("UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath", resourceCulture);
             }
         }
         

@@ -53,6 +53,7 @@ namespace EPS.Tests.UIPages
                 switch(buttonType)
                 {
                     case "ADD USER":
+                        Thread.Sleep(2000);
                         WaitForElement(By.XPath(UsersPageResource.UserPage_clickOnButtonInUserAccessManagement_AddUser_Xpath));
                         ClickButtonByXPath(UsersPageResource.UserPage_clickOnButtonInUserAccessManagement_AddUser_Xpath);
                         Thread.Sleep(3000);
@@ -79,7 +80,9 @@ namespace EPS.Tests.UIPages
             string emailAddress = string.Empty;
             string mobileNo = RandomDigits(8);
             string designation = string.Empty;
-            
+            string referenceNumber = string.Empty;
+
+
             try
             {
                 Guid userInformation = Guid.NewGuid();
@@ -131,9 +134,16 @@ namespace EPS.Tests.UIPages
                 IWebElement submitButton = GetWebElementPropertiesByXPath(UsersPageResource.FillUserDetails_CreateUser_PopUp_submitbutton_Xpath);
                 PerformMouseClickAction(submitButton);
                 Thread.Sleep(3000);
-
-
-
+                // Getting Reference Number from the Archive list and updating same to test data
+                ClickOptionsInLSB("Home");
+                ClickOnTab("Archive");
+                WaitForElement(By.XPath(UsersPageResource.FillUserDetails_calander_icon_Xpath));
+                ClickButtonByXPath(UsersPageResource.FillUserDetails_calander_icon_Xpath);
+                WaitForElement(By.XPath(UsersPageResource.FillUserDetails_Todays_Date_Xpath));
+                ClickButtonByXPath(UsersPageResource.FillUserDetails_Todays_Date_Xpath);
+                Thread.Sleep(3000);
+                referenceNumber= GetElementInnerTextByXPath(UsersPageResource.FillUserDetails_First_Reference_Number_Xpath);
+                Console.WriteLine(referenceNumber);
 
 
 
@@ -153,12 +163,14 @@ namespace EPS.Tests.UIPages
                 user.WriteUserInMemory(user, "Designation", designation);
                 user.WriteUserInMemory(user, "Group", groupName);
                 user.WriteUserInMemory(user, "Role", role);
+                user.WriteUserInMemory(user, "ReferenceNumber", referenceNumber);
                 user.UpdateEmail(emailAddress);
                 user.UpdateMobileNo(mobileNo);
                 user.UpdateName(fullName);
                 user.UpdateDesignation(designation);
                 user.UpdateGroup(groupName);
                 user.UpdateRole(role);
+                user.UpdateReferenceNumber(referenceNumber);
             }
         }
 
@@ -204,6 +216,85 @@ namespace EPS.Tests.UIPages
                 ExceptionHandler.HandleException(e);
             }
         }
-        
+
+        /// <summary>
+        /// Click option in LSB.
+        /// </summary>
+        /// <param name="options">This is options in LSB.</param>
+        public void ClickOptionsInLSB(string options)
+        {
+            try
+            {
+                switch (options)
+                {
+                    case "Home":
+                        Thread.Sleep(3000);
+                        WaitForElement(By.XPath(UsersPageResource.ClickOptionsInLSB_Home_Xpath));
+                        IWebElement home = GetWebElementPropertiesByXPath(UsersPageResource.ClickOptionsInLSB_Home_Xpath);
+                        ClickByJavaScriptExecutor(home);
+
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                ExceptionHandler.HandleException(e);
+            }
+        }
+
+        /// <summary>
+        /// Tab Navigation.
+        /// </summary>
+        /// <param name="tabName">This is tab Names present in the page.</param>
+        public void ClickOnTab(string tabName)
+        {
+            try
+            {
+                switch (tabName)
+                {
+                    case "Archive":
+                        Thread.Sleep(3000);
+                        WaitForElement(By.XPath(UsersPageResource.ClickOnTab_Archive_Xpath));
+                        IWebElement archiveTab = GetWebElementPropertiesByXPath(UsersPageResource.ClickOnTab_Archive_Xpath);
+                        ClickByJavaScriptExecutor(archiveTab);
+
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                ExceptionHandler.HandleException(e);
+            }
+        }
+
+        /// <summary>
+        /// This method is used to approve the newly created user.
+        /// </summary>
+        /// <param name="userType">This is user Type present in enum.</param>
+        public void ApproveTheNewlyCreatedUser(User.UserTypeEnum userType)
+        {
+            try
+            {
+                User user = User.Get(userType);
+                string expectedreferenceNumber = user.ReferenceNumber.ToString();
+                WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath));
+                IList<IWebElement> ActualReferenceNumber = GetWebElementsProperties(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Reference_Number_Xpath));
+                for (int i = 0; i < ActualReferenceNumber.Count; i++)
+                {
+                    if(expectedreferenceNumber == ActualReferenceNumber[i].Text)
+                    {
+                        ActualReferenceNumber[i].Click();
+                        break;
+                    }
+                }
+                Thread.Sleep(3000);
+                WaitForElement(By.XPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath));
+                ClickButtonByXPath(UsersPageResource.UserPage_ApproveTheNewlyCreatedUser_Approve_Button_Xpath);
+            }
+            catch (Exception e)
+            {
+                ExceptionHandler.HandleException(e);
+            }
+        }
     }
 }

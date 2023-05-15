@@ -30,8 +30,10 @@ namespace EPS.Automation.DataTransferObjects
         /// This is the Role.
         /// </summary>
         public String Role { get; set; }
-
-
+        /// <summary>
+        /// This is the Reference Number.
+        /// </summary>
+        public String ReferenceNumber { get; set; }
         /// <summary>
         /// This is the type of the user
         /// </summary>
@@ -196,6 +198,16 @@ namespace EPS.Automation.DataTransferObjects
         {
             User user = InMemoryDatabaseSingleton.DatabaseInstance.SelectTopOne<User>(x => x.Name == Name);
             user.Role = role;
+        }
+
+        /// <summary>
+        /// This method is used to update the user's role.
+        /// </summary>
+        /// <param name="role">This is the role of the user.</param>
+        public void UpdateReferenceNumber(string referenceNumber)
+        {
+            User user = InMemoryDatabaseSingleton.DatabaseInstance.SelectTopOne<User>(x => x.Name == Name);
+            user.ReferenceNumber = referenceNumber;
         }
     }
 }

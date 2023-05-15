@@ -83,12 +83,30 @@ testRunner.Then("I should be displayed with \"Log in to your account\" login pag
 #line 7
 testRunner.When("I login as \"EPSAdminUser01\" with \"Valid username\" and \"Valid password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
-testRunner.When("I Click on the \"User Access Management\" option in \"Settings\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("I Click on the \"User Access Management\" option in \"Settings\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
 testRunner.And("I click on \"ADD USER\" button in User Access Management", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
 testRunner.And("I enter user details of \"NewEPSUser01\" in \"OPS\" group with \"LTA Contracts AO\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
+testRunner.And("I click on \"LogOut\" option in User Profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Approving the Newly Created User with LTA Contracts AO role as EPSSuperAdminUser")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "UsersManagementFeature")]
+        public virtual void ApprovingTheNewlyCreatedUserWithLTAContractsAORoleAsEPSSuperAdminUser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Approving the Newly Created User with LTA Contracts AO role as EPSSuperAdminUser", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+testRunner.When("I login as \"EPSSuperAdminUser01\" with \"Valid username\" and \"Valid password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+testRunner.Then("I Approve the newly created \"NewEPSUser01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
 testRunner.When("I click on \"LogOut\" option in User Profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

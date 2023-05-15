@@ -56,37 +56,7 @@ namespace EPS.Tests.Tests.TestDefinitions
             try
             {
                 new CustomReport().SaveReport();
-                //Copy TestData XML file as an Excel file to TestData Folder inside current results folder
-                //and delete TestData.Xml inside TestResults\TestData folder
-                var testResultsDirectoryPath = Path.Combine(new string[] {
-                                                   Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
-                                                   GetDirectories("TestResults")[0].FullName,
-                                                   ConfigurationManager.AppSettings["Product"].ToUpper()+
-                                                   "_"+
-                                                   ConfigurationManager.AppSettings["AppServerName"].ToUpper()+
-                                                   "_"
-                                                   + Logger.GetApplicationStartDateTime() });
-                var tesDataFolderPath = Path.Combine(new string[] { testResultsDirectoryPath, "TestData" });
-                if (Directory.Exists(testResultsDirectoryPath))
-                {
-                    if (!Directory.Exists(tesDataFolderPath))
-                    {
-                        Directory.CreateDirectory(tesDataFolderPath);
-                    }
-                }
-                var srcFilePath = Path.Combine(new string[] {
-                                Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
-                                GetDirectories("TestResults")[0].FullName,"TestData","TestData.xml"});
-                var destinationXLFilePath = Path.Combine(new string[] { tesDataFolderPath, "TestData.xlsx" });
-                if (File.Exists(srcFilePath))
-                {
-                    DataSet ds = ExportToExcel.CreateDataSetFromXml(srcFilePath);
-                    ExportToExcel.ExportDataTableToExcel(ds, destinationXLFilePath);
-                    File.Delete(srcFilePath);
-                    Directory.Delete(Path.Combine(new string[] {
-                                                   Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
-                                                   GetDirectories("TestResults")[0].FullName,"TestData"}));
-                }
+                             
             }
             catch (Exception exp)
             {
