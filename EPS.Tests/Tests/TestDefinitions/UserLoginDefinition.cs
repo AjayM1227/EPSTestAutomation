@@ -121,7 +121,7 @@ namespace EPS.Tests.Tests.TestDefinitions
         /// </summary>
         /// <param name="options">This is options in user profile.</param>
         [When(@"I click on ""([^""]*)"" option in User Profile")]
-        public void clickOnOptionInUserProfile(string options)
+        public void ClickOnOptionInUserProfile(string options)
         {
             Logger.LogMethodEntry(IsTakeScreenShotDuringEntryExit);
             new UsersPage().OptionInUserProfile(options);

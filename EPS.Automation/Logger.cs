@@ -105,9 +105,7 @@ namespace EPS.Automation
                 string executingPath = Path.Combine(new string[] {
                                                    Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
                                                    GetDirectories("TestResults")[0].FullName,
-                                                   ConfigurationManager.AppSettings[AutomationConfigurationManagerResource.Product_Key].ToUpper()+
-                                                   AutomationConfigurationManagerResource.TextSeparator+
-                                                   ConfigurationManager.AppSettings[AutomationConfigurationManagerResource.AppServerName_Key].ToUpper()+
+                                                   ConfigurationManager.AppSettings[AutomationConfigurationManagerResource.ProductKey].ToUpper()+
                                                    AutomationConfigurationManagerResource.TextSeparator
                                                    + _applicationStartDateTime, AutomationConfigurationManagerResource.ScreenShots_Path });
                 // Get Screenshot Path

@@ -79,7 +79,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
 testRunner.Given("I access the URL as \"EPSAdminUser01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
-testRunner.Then("I should be displayed with \"Log in to your account\" login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I should be displayed with \"Log in to your accoun\" login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 8
 testRunner.When("I login as \"EPSAdminUser01\" with \"Valid username\" and \"Valid password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
