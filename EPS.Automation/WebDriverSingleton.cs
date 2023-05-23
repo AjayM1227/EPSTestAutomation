@@ -96,22 +96,26 @@ namespace EPS.Automation
         {
             try
             {
-                if (_webDriver != null) 
-                    _webDriver.Quit();
-                _webDriver.Close();
-                Process[] processesToKill = BrowserProcessFactory.GetProcessInstance();
-                foreach (Process processToKill in processesToKill)
+                if (_webDriver != null)
                 {
-                    try
+                    _webDriver.Quit();
+                    _webDriver.Close();
+                    Process[] processesToKill = BrowserProcessFactory.GetProcessInstance();
+                    foreach (Process processToKill in processesToKill)
                     {
-                        // kill and clean all processess
-                        processToKill.Kill();
-                    }
-                    catch
-                    {
-                        //This exception is being consumed so that if a process is not killed the testing will not stop
+                        try
+                        {
+                            // kill and clean all processess
+                            processToKill.Kill();
+                        }
+                        catch
+                        {
+                            //This exception is being consumed so that if a process is not killed the testing will not stop
+                        }
                     }
                 }
+                    
+               
             }
             catch
             {

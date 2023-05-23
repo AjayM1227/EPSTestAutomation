@@ -60,6 +60,11 @@ namespace EPS.Automation
         /// <returns>In memory TestData xml file path.</returns>
         private static String GetInMemoryTestDataFilePath()
         {
+            var testResultsDirectoryPath = Path.Combine(new string[] {
+                                                   Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
+                                                   GetDirectories("TestResults")[0].FullName,
+                                                   ConfigurationManager.AppSettings[AutomationConfigurationManagerResource.ProductKey].ToUpper()+
+                                                   AutomationConfigurationManagerResource.TextSeparator+ Logger.GetApplicationStartDateTime() });
             //copy xml file to TestResults/TestData folder for first time
             //and return the xml file path
             string environmentName = ConfigurationManager.AppSettings["Environment"];
@@ -69,14 +74,12 @@ namespace EPS.Automation
                InMemoryDatabaseResource.InMemoryTestData_Path,InMemoryDatabaseResource.XMLFolderName,
                testDataFileName + ".xml" });
             string destinationXMLPath = Path.Combine(new string[] {
-                Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
-                GetDirectories("TestResults")[0].FullName,
+                testResultsDirectoryPath,
                 InMemoryDatabaseResource.TestData_Path,
                 testDataFileName + ".xml"});
 
             string destinationFolderPath = Path.Combine(new string[] {
-             Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName).
-             GetDirectories("TestResults")[0].FullName,
+             testResultsDirectoryPath,
             InMemoryDatabaseResource.TestData_Path });
             if (!Directory.Exists(destinationFolderPath))
             {
